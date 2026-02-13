@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import ClientContact from './components/Clientcontact';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 import AddLead from './components/AddLead';
@@ -9,7 +10,7 @@ import './App.css';
 // Protected Route Component
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem('token');
-  return token ? children : <Navigate to="/" />;
+  return token ? children : <Navigate to="/admin-login" />;
 };
 
 function App() {
@@ -17,7 +18,13 @@ function App() {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* Client Contact Form - Landing Page */}
+          <Route path="/" element={<ClientContact />} />
+          
+          {/* Admin Login */}
+          <Route path="/admin-login" element={<Login />} />
+          
+          {/* Protected Routes */}
           <Route 
             path="/dashboard" 
             element={

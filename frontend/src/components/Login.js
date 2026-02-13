@@ -18,7 +18,7 @@ function Login() {
       ...formData,
       [e.target.name]: e.target.value
     });
-    setError(''); // Clear error when user types
+    setError('');
   };
 
   const handleSubmit = async (e) => {
@@ -46,8 +46,8 @@ function Login() {
       <div className="login-card">
         <div className="login-header">
           <div className="login-logo">📊</div>
-          <h1>CRM Dashboard</h1>
-          <p>Welcome back! Please login to your account.</p>
+          <h1>Admin Login</h1>
+          <p>Access the CRM management system</p>
         </div>
 
         {error && (
@@ -63,7 +63,7 @@ function Login() {
               type="text"
               id="username"
               name="username"
-              placeholder="Enter your username"
+              placeholder="Admin"
               value={formData.username}
               onChange={handleChange}
               required
@@ -76,7 +76,7 @@ function Login() {
               type="password"
               id="password"
               name="password"
-              placeholder="Enter your password"
+              placeholder="••••"
               value={formData.password}
               onChange={handleChange}
               required
@@ -92,14 +92,12 @@ function Login() {
           </button>
         </form>
 
-        <p style={{ 
-          marginTop: '24px', 
-          textAlign: 'center', 
-          fontSize: '13px', 
-          color: '#6b7280' 
-        }}>
-          Demo credentials: admin / 1234
-        </p>
+        <button 
+          className="back-to-home"
+          onClick={() => navigate('/')}
+        >
+          ← Back
+        </button>
       </div>
     </div>
   );

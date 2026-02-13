@@ -91,3 +91,116 @@ simple-crm/
     │   └── index.js            # React entry point
     └── package.json            # Frontend dependencies
 ```
+
+
+## 🚀 Installation & Setup
+
+### Prerequisites
+Before you begin, ensure you have the following installed:
+- **Node.js** (v14 or higher) - [Download here](https://nodejs.org/)
+- **npm** (comes with Node.js)
+- **MongoDB Atlas account** (free) - [Sign up here](https://www.mongodb.com/cloud/atlas)
+- **Git** - [Download here](https://git-scm.com/)
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/yourusername/simple-crm.git
+cd simple-crm
+```
+
+### Step 2: Backend Setup
+
+1. **Navigate to backend folder:**
+```bash
+cd backend
+```
+
+2. **Install dependencies:**
+```bash
+npm install
+```
+
+3. **Create environment file:**
+Create a `.env` file in the backend folder and add:
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://username:password@cluster.mongodb.net/crm-database?retryWrites=true&w=majority
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+```
+
+4. **Configure MongoDB Atlas:**
+   - Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+   - Create a database user with username and password
+   - Whitelist your IP address (or allow access from anywhere: 0.0.0.0/0)
+   - Get your connection string and replace the `MONGO_URI` in `.env`
+
+5. **Start the backend server:**
+```bash
+npm run dev
+```
+Backend should run on `http://localhost:5000`
+
+You should see:
+```
+🚀 Server running on port 5000
+✅ MongoDB Connected Successfully
+```
+
+### Step 3: Frontend Setup
+
+1. **Open new terminal and navigate to frontend:**
+```bash
+cd frontend
+```
+
+2. **Install dependencies:**
+```bash
+npm install
+```
+
+3. **Start the development server:**
+```bash
+npm start
+```
+Frontend should open automatically at `http://localhost:3000`
+
+### Step 4: Create Admin Account
+
+You need to register an admin account before you can login.
+
+**Using Postman or any API client:**
+```
+POST http://localhost:5000/api/auth/register
+
+Body (JSON):
+{
+  "username": "admin",
+  "password": "1234",
+  "email": "admin@crm.com"
+}
+```
+
+**Expected Response:**
+```json
+{
+  "success": true,
+  "message": "Admin registered successfully"
+}
+```
+
+### Step 5: Login & Start Using
+
+1. Navigate to `http://localhost:3000`
+2. Login with:
+   - **Username:** `admin`
+   - **Password:** `1234`
+3. You're in! 🎉
+
+## 👨‍💻 **Author**
+
+**Himali Barde**
+
+- GitHub: https://github.com/himalibarde
+- LinkedIn: www.linkedin.com/in/himali-barde-5b4b1a34a
+- Email: himalibarde859@gmail.com
+
